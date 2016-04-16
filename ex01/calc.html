@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculaminator</title>
+        <meta charset="utf-8" />
+        <script>
+        
+            setInterval(function(){ alert("Please, use me..."); }, 90000);
+            
+            function operation(mLeft, ope, mRight){
+                switch (ope){
+                    case '+':
+                        return mLeft + mRight;
+                    case '-':
+                        return mLeft - mRight;
+                    case '*':
+                        return mLeft * mRight;
+                    case '/':
+                        return mLeft / mRight;
+                    case '%':
+                        return mLeft % mRight;
+                }
+                
+            }
+            
+            function is_int(value) {
+                if((parseFloat(value) == parseInt(value)) && !isNaN(value)) 
+                    return true;
+                else {
+                    alert ('Error :(');
+                return false;
+              }
+            }
+            
+            function calc() {
+                var mLeft = document.getElementById('mLeft').value;
+                var mRight = document.getElementById('mRight').value;
+                var e = document.getElementById('operator');
+                var op = e.options[e.selectedIndex].text
+                
+                if (is_int(mLeft) && is_int(mRight)){
+                    if ((op == '%' || op == '/') && mRight == '0')
+                        alert('It’s over 9000!');
+                    else{
+                        console.log(operation(parseInt(mLeft), op, parseInt(mRight)));
+                        alert(operation(parseInt(mLeft), op, parseInt(mRight)));
+                    }
+                }
+            }
+        
+        </script>
+    </head>
+    <body>
+            <input type="text" id="mLeft"/>
+            <select id="operator">
+                <option value="add">+</option>
+                <option value="sub">-</option>
+                <option value="mul">*</option>
+                <option value="div">/</option>
+                <option value="mod">%</option>
+            </select>
+            <input type="text" id="mRight"/>
+            <input onclick="calc()" type="submit" value="Try me!"/>
+    </body>
+</html>

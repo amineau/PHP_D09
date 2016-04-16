@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Balloon</title>
+        <script src="https://code.jquery.com/jquery.min.js"></script>
+        <style type="text/css">
+            #balloon{
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+            }
+        </style>
+    </head>
+    <body>
+      
+        <div id="balloon" style="background-color: red;"></div>
+        <script>
+            var color = ['rgb(255, 0, 0)', 'rgb(0, 128, 0)', 'rgb(0, 0, 255)'];
+            $(document).ready(function(){
+                
+                function change(idColor, length){
+                    $("#balloon").css("background-color", color[idColor]);
+                    $("#balloon").animate({width: length, height: length}, 'fast');
+                }
+                $("#balloon").click(function(){
+                    change((color.indexOf($(this).css("background-color")) + 1) % 3, $(this).width() <= 410 ? '+=10px' : '200px');
+                });
+                $("#balloon").mouseout(function(){
+                    var idColor = (color.indexOf($(this).css("background-color")) - 1) % 3;
+                    change(idColor == -1 ? 2 : idColor, $(this).width() >= 205 ? '-=5px' : '200px');
+                });
+            });
+            
+            
+        </script>
+    </body>
+</html>

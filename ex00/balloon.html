@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Balloon</title>
+          <script>
+
+            function changeColor(color){
+                switch (color) {
+                    case 'red':
+                        return 'green';
+                    case 'green':
+                        return 'blue';
+                    case 'blue':
+                        return 'red';
+                }
+            }
+            
+            function reverseColor(color){
+                switch (color) {
+                    case 'red':
+                        return 'blue';
+                    case 'green':
+                        return 'red';
+                    case 'blue':
+                        return 'green';
+                }
+                
+            }
+
+            function filling(){
+                var balon = document.getElementById("balloon");
+                if (balon.offsetWidth <= 410) {
+                    balon.style.width = balon.offsetWidth + 10 + "px";
+                    balon.style.height =  balon.offsetHeight + 10 + "px";
+                }
+                else {
+                    balon.style.width = 200 + "px";
+                    balon.style.height =  200 + "px";
+                }
+                balon.style.backgroundColor = changeColor(balon.style.backgroundColor);
+            }
+            
+            function reduce(){
+                 var balon = document.getElementById("balloon");
+                 if (balon.offsetWidth >= 205) {
+                    balon.style.width = balon.offsetWidth - 5 + "px";
+                    balon.style.height =  balon.offsetHeight - 5 + "px";
+                    
+                   
+                }
+                balon.style.backgroundColor = reverseColor(balon.style.backgroundColor);
+                
+            }
+        </script>
+        <style type="text/css">
+            #balloon{
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+            }
+        </style>
+    </head>
+    <body>
+      
+        <div id="balloon" onmouseOut="reduce()" onclick="filling()" style="background-color: red;">
+            
+        </div>
+
+    </body>
+</html>
