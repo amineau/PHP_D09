@@ -5,7 +5,7 @@
         <meta charset="utf-8" />
         <script>
         
-            setInterval(function(){ alert("Please, use me..."); }, 90000);
+            setInterval(function(){ alert("Please, use me..."); }, 30000);
             
             function operation(mLeft, ope, mRight){
                 switch (ope){
@@ -36,7 +36,7 @@
                 var mLeft = document.getElementById('mLeft').value;
                 var mRight = document.getElementById('mRight').value;
                 var e = document.getElementById('operator');
-                var op = e.options[e.selectedIndex].text
+                var op = e.options[e.selectedIndex].text;
                 
                 if (is_int(mLeft) && is_int(mRight)){
                     if ((op == '%' || op == '/') && mRight == '0')

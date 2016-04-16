@@ -18,28 +18,40 @@
             <input type="text" id="mRight"/>
             <input id="try" type="submit" value="Try me!"/>
             
-            <script>
+        <script>
   
         
-         $(document).ready(function(){
-            $('#try').click(function(){
+             $(document).ready(function(){
+                $('#try').click(function(){
+                    var mLeft = $('#mLeft').val();
+                    var mRight = $('#mRight').val();
+                    var op = $('#operator').val();
                     
-            });
-         });
-        /*
-            setInterval(function(){ alert("Please, use me..."); }, 90000);
+                    console.log(op);
+                    if (is_int(mLeft) && is_int(mRight)){
+                        if ((op == 'mod' || op == 'div') && mRight == '0')
+                            alert('It’s over 9000!');
+                        else{
+                            console.log(operation(parseInt(mLeft), op, parseInt(mRight)));
+                            alert(operation(parseInt(mLeft), op, parseInt(mRight)));
+                        }
+                    }
+                });
+             });
+
+            setInterval(function(){ alert("Please, use me..."); }, 30000);
             
             function operation(mLeft, ope, mRight){
                 switch (ope){
-                    case '+':
+                    case 'add':
                         return mLeft + mRight;
-                    case '-':
+                    case 'sub':
                         return mLeft - mRight;
-                    case '*':
+                    case 'mul':
                         return mLeft * mRight;
-                    case '/':
+                    case 'div':
                         return mLeft / mRight;
-                    case '%':
+                    case 'mod':
                         return mLeft % mRight;
                 }
                 
@@ -53,23 +65,7 @@
                 return false;
               }
             }
-            
-            function calc() {
-                var mLeft = document.getElementById('mLeft').value;
-                var mRight = document.getElementById('mRight').value;
-                var e = document.getElementById('operator');
-                var op = e.options[e.selectedIndex].text
-                
-                if (is_int(mLeft) && is_int(mRight)){
-                    if ((op == '%' || op == '/') && mRight == '0')
-                        alert('It’s over 9000!');
-                    else{
-                        console.log(operation(parseInt(mLeft), op, parseInt(mRight)));
-                        alert(operation(parseInt(mLeft), op, parseInt(mRight)));
-                    }
-                }
-            }
-*/        
+
         </script>
     </body>
 </html>

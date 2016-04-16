@@ -13,7 +13,6 @@ function newList(idName, text)
     var myDiv = document.getElementById('ft_list');
     var prev = index - 1
     
-    console.log(text);
     if (text != "" && text)
     {
         newElement.setAttribute('id', idName);
@@ -23,11 +22,9 @@ function newList(idName, text)
             myDiv.appendChild(newElement);
         else
             myDiv.insertBefore(newElement, myDiv.childNodes[0]);
-        console.log('['+idName+']');
         createCookie(idName, text, 1);
         index++;
     }
-    console.log(document.cookie);
 }
 
 function deleted(oldChild)
@@ -44,7 +41,7 @@ function createCookie(name, value, day)
 	var date = new Date();
 	date.setTime(date.getTime()+(day*24*60*60*1000));
 	var expires = "; expires="+ date.toGMTString();
-	document.cookie = name + "=" + value + expires+"; path=/";
+	document.cookie = name + "=" + value + expires + "; path=/";
 }
 
 function checkCookie() {

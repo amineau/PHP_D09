@@ -15,9 +15,10 @@
       
         <div id="balloon" style="background-color: red;"></div>
         <script>
+        
+        
             var color = ['rgb(255, 0, 0)', 'rgb(0, 128, 0)', 'rgb(0, 0, 255)'];
             $(document).ready(function(){
-                
                 function change(idColor, length){
                     $("#balloon").css("background-color", color[idColor]);
                     $("#balloon").animate({width: length, height: length}, 'fast');
